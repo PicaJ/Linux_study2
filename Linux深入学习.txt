@@ -1,0 +1,52 @@
+crtl+a：至左端  、crtl+e：至右端  、crtl+u：删除行
+
+目录和文件操作：
+	cd 载入：
+		cd ./ ：从当前目录开始
+		cd -  :  返回刚才的目录
+		cd ~/ ：家目录开始
+	
+	ls 显示：
+		ls -R ：递归展开目录
+	
+	which：查看命令路劲
+
+	rm 删除：
+		rm -rf 递归强制删除目录及其文件
+	
+	cp 拷贝：
+		cp -a 目录	：拷贝目录的全部（包括属性）
+		cp -r 目录  ： 递归拷贝
+	
+	cat 查看文件/回显终端内容：
+		tac 文件名：倒显示文件内容
+	
+	more 查看大文件
+
+	head/tail 【num】 查看前/后几行
+
+	tree 显示树形目录
+
+find 找文件命令:
+	find ./ -name '*.jpg'			// 	./ 目录下所有目录寻找
+	find ./ -name -maxdepth 1 '*.jpg'	// 	./ 在1层目录下寻找
+	find ./ -size 20M+ -size -50M		//	找大于20M小于50M
+		-ctime 、-atime、-mtime	// 	查看内容修改、最近访问、属性修改时间
+	find ./ -maxdepth 1 -type f -exec ls -l {} \;	//	-exec将前面的结果替换到{}，执行ls -l  （换成ok变为交互）
+
+grep 找文件内容：
+	grep -r 'copy' ./ -n		//递归寻找含copy内容的文件（-n显示行号）
+	ps aux | grep kernel		//检索进程内容包含kernel的（grep命令搜索进程）
+
+xargs	:作用与exec类似，但对大型结果集回分块处理，性能更高
+	find ./ -type f | xargs ls -l 	//借用 | 管道，结果集替换
+
+	
+	
+
+
+
+
+	
+	
+	
