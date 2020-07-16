@@ -32,18 +32,66 @@ find 找文件命令:
 	find ./ -name -maxdepth 1 '*.jpg'	// 	./ 在1层目录下寻找
 	find ./ -size 20M+ -size -50M		//	找大于20M小于50M
 		-ctime 、-atime、-mtime	// 	查看内容修改、最近访问、属性修改时间
-	find ./ -maxdepth 1 -type f -exec ls -l {} \;	//	-exec将前面的结果替换到{}，执行ls -l  （换成ok变为交互）
+	find ./ -maxdepth 1 -type f -exec ls -l {} \;	//*****	-exec将前面的结果替换到{}，执行ls -l  （换成ok变为交互）
 
 grep 找文件内容：
 	grep -r 'copy' ./ -n		//递归寻找含copy内容的文件（-n显示行号）
 	ps aux | grep kernel		//检索进程内容包含kernel的（grep命令搜索进程）
 
-xargs	:作用与exec类似，但对大型结果集回分块处理，性能更高
-	find ./ -type f | xargs ls -l 	//借用 | 管道，结果集替换
+xargs 调用结果集	:作用与exec类似，但对大型结果集回分块处理，性能更高
+		find ./ -type f | xargs ls -l 	//借用 | 管道，结果集替换
+
+（搜索的结果集多为空格隔开，二次调用时可能把命名有空格的文件看成两个文件）
+使用”-print0“ ->设置分隔符为NULL，xargs再设定-0 即可
+	例：find . -type f -print0 | xargs -0 grep "abc"
+	
+awk:
+
+
+软件包的安装：
+	sudo apt-get update		//更新源站的软件列表
+	sudo apt-get install 		//安装软件
+	
+	sudo apt-get remove 	//卸载
+	
+.deb:
+	sudo dpkg -i 	//安装
+	sudo dpkg -r 	//卸载
+	sudo dpkg -r --purge xxxx.deb		//联通配置文件删除
+	sudo dpkg -info xxx.deb		//查看软件包信息
+	sudo dpkg -L xxx.deb		//查看文件拷贝详情
+	sudo dpkg -l			//查看系统已安装软件包
+	sudo dpkg-reconfigure xxx		//重新配置软件包
+
+源码安装：（一般步骤）
+1. 解压源码包	
+2. cd dir
+3. ./configure 检查文件是否缺失，创建makefile文件，检查编译环境
+4. make 编译源码，生成库和可执行文件
+5. sudo make install 把库和可执行文件安装到系统路径下
+6. sudo make distclean 卸载（注册表等不删除）
+
+压缩：file （查看文件信息）
+	tar -zcxvf  destbar  sourcbar		//gzip方式压缩
+		-z: gzip压缩
+		-c: create
+		-v: 显示压缩过程
+		-f: file
+ 
+gzip与gunzip（单个文件的数据压缩）
+	
+	tar  jcvf destbar  sourcebar 		//bzip2方式压缩
+	
+解压：将压缩命令中的 c -->x
+
 
 	
-	
 
+
+
+
+
+			
 
 
 
