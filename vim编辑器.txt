@@ -71,8 +71,8 @@ INSERT（插入模式）：
 	u、crtl+r
 	
 分屏：
-	sp：横屏分 （crtl+w切换分屏，推出：qall！全退出）
-	vsp：竖屏分
+	：sp横屏分 （crtl+w切换分屏，推出：qall！全退出）
+	：vsp竖屏分
 	
 跳转至man手册：
 	光标至函数单词上，K跳转，指定第几卷nK
