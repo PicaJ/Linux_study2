@@ -2,7 +2,7 @@
 	ar rcs libxxx.a 材料.o
 		生成.o（目标）文件：gcc -c xxx.c -o xx.o
 	
-	链接：gcc xxx.c /..../libxxx.a -o xxxx
+	链接：gcc xxx.c -I/xxxx.h /..../libxxx.a -o xxxx	
 		
 	制作：
 		生成.a文件后，再生成.h文件
