@@ -33,6 +33,7 @@ find 找文件命令:
 	find ./ -size 20M+ -size -50M		//	找大于20M小于50M
 		-ctime 、-atime、-mtime	// 	查看内容修改、最近访问、属性修改时间
 	find ./ -maxdepth 1 -type f -exec ls -l {} \;	//*****	-exec将前面的结果替换到{}，执行ls -l  （换成ok变为交互）
+	find /usr/sam \(-path /usr/sam/dir1 -o -path /usr/sam/file1 \) -prune -o -name "temp" -print	//避开dir1和file1目录，并寻找名为temp的文件并打印
 
 grep 找文件内容：
 	grep -r 'copy' ./ -n		//递归寻找含copy内容的文件（-n显示行号）
